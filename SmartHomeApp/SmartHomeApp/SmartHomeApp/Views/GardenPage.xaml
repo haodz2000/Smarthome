@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHomeApp.Views.GardenPage"
+             Title="Vườn">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid  Margin="0,0,0,15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label 
+                    Grid.Row="0"
+                    FontSize="25"
+                    Background="lightblue"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Padding="5,10"
+                    HorizontalTextAlignment="Center"
+                    Text="Thời tiết hôm nay"
+                />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid BackgroundColor="Aqua" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Text="Trạn thái"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                        <Label
+                            Grid.Row="1"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Text="Sunny"
+                            TextColor="Black"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                        />
+
+                    </Grid>
+                    <Grid BackgroundColor="Aqua" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Text="Nhiệt độ"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                        <Label
+                            Grid.Row="1"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Text="{Binding Temperature, Mode=TwoWay}"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                        />
+
+                    </Grid>
+                    <Grid BackgroundColor="Aqua" Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Text="Độ ẩm"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                        <Label
+                            Grid.Row="1"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Text="{Binding Humidity, Mode=TwoWay}"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            
+                        />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid  Margin="0,0,0,15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Label 
+                    Grid.Row="0"
+                    FontSize="25"
+                    Background="lightblue"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Padding="5,10"
+                    HorizontalTextAlignment="Center"
+                    Text="Hoạt động"
+                />
+                <Grid Grid.Row="1" Margin="0,0,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid BackgroundColor="Aqua" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Text="Máy bơm"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                        <Label
+                            Grid.Row="1"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Text="{Binding WaterPump, Mode=TwoWay}"
+                            TextColor="Black"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                        />
+
+                    </Grid>
+                    <Grid BackgroundColor="Aqua" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition  />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Text="ACTIVE"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0"
+                                Text="Bật"
+                                Command="{Binding OpenWaterPumpCommand}"
+                            />
+                            <Button Grid.Column="1"
+                                    Text="Tắt"
+                                    Command="{Binding CloseWaterPumpCommand}"
+                            />
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

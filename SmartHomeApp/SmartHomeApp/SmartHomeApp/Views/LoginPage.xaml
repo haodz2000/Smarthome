@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartHomeApp.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="Smart Home"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   Margin="15,0,15,0"
+            />
+            <Entry 
+                Text="{Binding Username, Mode=TwoWay}" 
+                x:Name="usernameEntry" 
+                Placeholder="abc@gmail.com"
+                Margin="10,10"
+            />
+            <Entry
+                Text="{Binding Password, Mode=TwoWay}"
+                x:Name="passwordEntry"
+                Placeholder="Password"
+                Margin="10,10"
+                IsPassword="True"
+            />
+            <Button Margin="10,10" VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

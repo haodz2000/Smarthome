@@ -1,0 +1,223 @@
+﻿<Window x:Class="HomeSmart.View.KitchenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeSmart.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:uc="clr-namespace:HomeSmart.UserControlKteam"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource KitchenVM}"
+        Name="kitchen"
+        Title="Nhà Bếp" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=kitchen}" ></uc:ControlBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <materialDesign:Card Margin="5">
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Separator Margin="5"></Separator>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <materialDesign:Card Background="#03a9f4"  Margin="5"
+                                                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"  
+                                                         Padding="0" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <materialDesign:PackIcon Kind="PowerPlug" />
+                                        <TextBlock Grid.Row="0" Margin="16 16 16 4"     
+                                            Text="Máy bơm"
+                                            Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                        </TextBlock>
+                                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Margin="16 0 16 8" VerticalAlignment="Center" 
+                                                       HorizontalAlignment="Left"      
+                                                       Text="{Binding WaterPump, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                            </TextBlock>
+                                        </Grid>
+                                        <materialDesign:PopupBox HorizontalAlignment="Right" Padding="2 0 2 0">
+                                            <StackPanel>
+                                                <!--đưa gì vào thì đưa-->
+                                            </StackPanel>
+                                        </materialDesign:PopupBox>
+                                    </Grid>
+                                </materialDesign:Card>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Button
+                                        Command="{Binding OpenWaterCommand}"
+                                        Grid.Row="0"
+                                        Margin="0 5 0 0"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                        ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                    >
+                                        <materialDesign:PackIcon
+                                                    Kind="Power"
+                                                    Height="24"
+                                                    Width="24" />
+                                    </Button>
+                                    <Button
+                                        Command="{Binding CloseWaterCommand}"
+                                        Margin="0 5 0 0"
+                                        Grid.Row="1"    
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                        ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                    >
+                                        <materialDesign:PackIcon
+                                                    Kind="PowerPlugOff"
+                                                    Height="24"
+                                                    Width="24" />
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="1">
+                <materialDesign:Card Margin="5">
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Separator Margin="5"></Separator>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <materialDesign:Card Background="#03a9f4"  Margin="5"
+                                                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"  
+                                                         Padding="0" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <materialDesign:PackIcon Kind="PowerPlug" />
+                                        <TextBlock Grid.Row="0" Margin="16 16 16 4"     
+                                                       Text="Ánh sáng"
+                                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+
+                                        </TextBlock>
+                                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Margin="16 0 16 8" VerticalAlignment="Center" 
+                                                       HorizontalAlignment="Left"      
+                                                       Text="{Binding Lamp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                       Style="{StaticResource MaterialDesignBody1TextBlock}">
+                                            </TextBlock>
+                                        </Grid>
+                                        <materialDesign:PopupBox HorizontalAlignment="Right" Padding="2 0 2 0">
+                                            <StackPanel>
+                                                <!--đưa gì vào thì đưa-->
+                                            </StackPanel>
+                                        </materialDesign:PopupBox>
+                                    </Grid>
+                                </materialDesign:Card>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Button
+                                            Command="{Binding OpenLampCommand}"
+                                            Margin="0 5 150 0"
+                                            Grid.Row="0"    
+                                            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                            ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                        >
+                                        <materialDesign:PackIcon
+                                                Kind="Power"
+                                                Height="24"
+                                                Width="24" />
+                                    </Button>
+                                    <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                                    <Button
+                                            Command="{Binding CloseLampCommand}"
+                                            Margin="0 0 150 0"
+                                            Grid.Row="2"    
+                                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                            ToolTip="MaterialDesignFloatingActionMiniLightButton"
+                                        >
+                                        <materialDesign:PackIcon Kind="PowerPlugOff" Height="24" Width="24" />
+                                    </Button>
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+
+
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
